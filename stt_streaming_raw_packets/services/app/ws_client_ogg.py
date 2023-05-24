@@ -8,12 +8,17 @@ import opuslib
 import sys
 import io
 from pydub import AudioSegment
+import argparse
 
 try:
-    record_number = int(sys.argv[1])
+    host = sys.argv[1]
+except:
+    host = '0.0.0.0'
+
+try:
+    record_number = int(sys.argv[2])
 except:
     record_number = 0
-
 
 def tsv_to_json(filename):
     with open(filename, "r") as f:
